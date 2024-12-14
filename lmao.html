@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Architecture</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+        }
+
+        li > ul {
+            margin-left: 20px;
+            border-left: 2px solid #ccc;
+            padding-left: 10px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .category {
+            color: #0056b3;
+        }
+
+        .sub-category {
+            color: #6c757d;
+        }
+
+        .announcement {
+            background-color: #e9f7ff;
+            border: 1px solid #b3d8ff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-size: 1.1em;
+        }
+
+        .announcement strong {
+            color: #007bff;
+        }
+
+        .feature {
+            margin-left: 20px;
+        }
+
+        .feature ul {
+            margin-top: 5px;
+        }
+
+        .roles {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .roles ul {
+            padding-left: 20px;
+        }
+
+        .highlight {
+            color: #ff5733;
+            font-weight: bold;
+        }
+
+        .icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project Architecture</h1>
+    <div class="announcement">
+        <p>
+            Je souhaite donc annoncer avec la plus grande fierté, que j'active dans l'immédiat le site de pack openning du 
+            <strong>cégep de Sorel-Tracy</strong>, plus communément connu sous le nom de : <strong>POTI</strong>. 
+            (Ps: Si vous avez un meilleur nom, n'hésitez pas !)
+        </p>
+        <p>
+            Le site va contenir les features suivantes :
+        </p>
+        <ul>
+            <li class="feature"><i class="fas fa-box icon"></i> Ouverture de pack à tous les 6H (Maximum: 2 Pack)</li>
+            <li class="feature"><i class="fas fa-user icon"></i> Système utilisateur en Standalone avec le email du cégep</li>
+            <li class="feature"><i class="fas fa-store icon"></i> Boutique en ligne avec système monétaire regroupé</li>
+            <li class="feature"><i class="fas fa-layer-group icon"></i> Collections de cartes:
+                <ul>
+                    <li>Les cours techniques (81 cartes)</li>
+                    <li>Les profs (21 cartes)</li>
+                    <li>Les locaux (18 cartes, le local des profs est le plus rare)</li>
+                </ul>
+            </li>
+            <li class="feature"><i class="fas fa-coins icon"></i> Système de gambling avec des doublons</li>
+            <li class="feature"><i class="fas fa-wallet icon"></i> Monnaie virtuelle appelée <strong>POTI</strong></li>
+            <li class="feature"><i class="fas fa-box-open icon"></i> Inventaire des cartes</li>
+        </ul>
+    </div>
+
+    <ul>
+        <li class="project-title">Projet
+            <ul>
+                <li class="category">Server
+                    <ul>
+                        <li>Spring-Boot
+                            <ul>
+                                <li class="sub-category">repository</li>
+                                <li class="sub-category">model</li>
+                                <li class="sub-category">controller</li>
+                                <li class="sub-category">services</li>
+                                <li class="sub-category">config</li>
+                                <li class="sub-category">CLI tools</li>
+                                <li class="sub-category">utilities</li>
+                                <li class="sub-category">test</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="category">Frontend
+                    <ul>
+                        <li>React + TS
+                            <ul>
+                                <li class="sub-category">components</li>
+                                <li class="sub-category">views</li>
+                                <li class="sub-category">types</li>
+                                <li class="sub-category">api</li>
+                                <li class="sub-category">hooks</li>
+                                <li class="sub-category">contexts</li>
+                                <li class="sub-category">state management</li>
+                                <li class="sub-category">styles (CSS, SCSS)</li>
+                                <li class="sub-category">test (unit and integration)</li>
+                            </ul>
+                        </li>
+                        <li class="sub-category">UI Frameworks (Bootstrap, Material-UI)</li>
+                    </ul>
+                </li>
+                <li class="category">Base de données
+                    <ul>
+                        <li>BD public pour les cartes et autres pacotilles
+                            <ul>
+                                <li class="sub-category">init.sql (initialization script)</li>
+                                <li class="sub-category">mock_data.sql (mock data script)</li>
+                            </ul>
+                        </li>
+                        <li>BD privée pour les utilisateurs
+                            <ul>
+                                <li class="sub-category">init.sql (initialization script)</li>
+                                <li class="sub-category">mock_data.sql (mock data script)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="category">Docker-compose
+                    <ul>
+                        <li class="sub-category">Dockerfile pour API</li>
+                        <li class="sub-category">Dockerfile pour les BD's</li>
+                        <li class="sub-category">docker-compose.override.yml</li>
+                        <li class="sub-category">volume management</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="roles">
+        <p>
+            Pour ceux qui sont intéressés, je vous invite à en parler avec d'autres programmeurs et à dire dans ce chat si cela vous intéresse, ainsi que sur quelle partie vous aimeriez travailler !
+        </p>
+        <p>Les rôles sont les suivants :</p>
+        <ul>
+            <li><i class="fas fa-server icon"></i> Backend</li>
+            <li><i class="fas fa-desktop icon"></i> Frontend</li>
+            <li><i class="fas fa-database icon"></i> Base de données</li>
+        </ul>
+        <p>
+            Pour tous ceux qui participeront, nous allons vous faire une carte spéciale à votre effigie, dans une 4ème collection.
+        </p>
+        <p><strong>Sinon, c'est surtout pour apprendre et s'amuser tous ensemble !</strong> <i class="fas fa-smile icon"></i></p>
+    </div>
+</body>
+</html>
